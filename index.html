@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyMaps API SDK Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 5px; }
+        h1, h2 { color: #333; }
+        p { color: #666; }
+        .section { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>SkyMaps API SDK Documentation</h1>
+    <p>Version 1.0.0</p>
+    
+    <div class="section">
+        <h2>Welcome</h2>
+        <p>Welcome to the SkyMaps API SDK! This SDK provides simplified methods to access astronomical data and visualizations for stars, planets, and other celestial bodies.</p>
+    </div>
+
+    <div class="section">
+        <h2>Installation</h2>
+        <p>Install using npm:</p>
+        <code>npm install skymaps-sdk</code>
+        <p>Or using pip:</p>
+        <code>pip install skymaps-sdk</code>
+    </div>
+
+    <div class="section">
+        <h2>Configuration</h2>
+        <p>Initialize the SDK with your API key:</p>
+        <code>const SkyMaps = require('skymaps-sdk');</code><br>
+        <code>const client = new SkyMaps('YOUR_API_KEY');</code>
+        <p>Or in Python:</p>
+        <code>from skymaps_sdk import SkyMaps</code><br>
+        <code>client = SkyMaps(api_key='YOUR_API_KEY')</code>
+    </div>
+
+    <div class="section">
+        <h2>Basic Usage</h2>
+        <h3>Get Current Star Map</h3>
+        <p>Retrieve a star map based on the current time and observer's location:</p>
+        <code>client.getStarMap({ latitude: 40.7128, longitude: -74.0060 }, (error, map) => {
+          if (error) console.error(error);
+          else console.log(map);
+        });</code>
+        <p>Or in Python:</p>
+        <code>map = client.get_star_map(latitude=40.7128, longitude=-74.0060)</code><br>
+        <code>if map:
+            print(map)
+        else:
+            print("Error retrieving star map")</code>
+        
+        <h3>Search Celestial Object</h3>
+        <p>Search for data on a specific celestial object by name:</p>
+        <code>client.searchCelestialObject('Vega', (error, data) => {
+          if (error) console.error(error);
+          else console.log(data);
+        });</code>
+        <p>Or in Python:</p>
+        <code>data = client.search_celestial_object('Vega')</code><br>
+        <code>if data:
+            print(data)
+        else:
+            print("Error retrieving data")</code>
+    </div>
+
+    <div class="section">
+        <h2>Advanced Features</h2>
+        <p>Customize observational parameters like time, date, and specific celestial events.</p>
+        <code>const params = { time: '2024-06-08T20:00:00', event: 'lunar_eclipse' };</code><br>
+        <code>client.getEventMap(params, (error, map) => {
+          if (error) console.error(error);
+          else console.log(map);
+        });</code>
+    </div>
+</body>
+</html>
